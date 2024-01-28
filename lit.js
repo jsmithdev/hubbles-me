@@ -3347,7 +3347,7 @@ let HubblesApp = class HubblesApp extends s$1 {
 		<div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-2 ring-1 ring-white/10">
 			<div class="flex h-16 shrink-0 items-center">
 				<!-- https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500 -->
-			<img class="h-8 w-auto" src="../resources/hubbles.png" alt="Hubbles">
+			<img class="h-8 w-auto" src="./resources/hubbles.png" alt="Hubbles">
 			</div>
 			<nav class="flex flex-1 flex-col">
 			<ul role="list" class="flex flex-col items-center space-y-1">
@@ -3372,7 +3372,7 @@ let HubblesApp = class HubblesApp extends s$1 {
 	<!-- Static sidebar for desktop -->
 	<div class="relative hidden md:fixed md:inset-y-0 md:left-0 md:z-50 md:block md:w-20 md:overflow-y-auto md:bg-gray-900 md:pb-4">
 	<div class="flex h-16 shrink-0 items-center justify-center">
-		<img class="h-8 w-auto" src="../resources/hubbles.png" alt="Hubbles">
+		<img class="h-8 w-auto" src="./resources/hubbles.png" alt="Hubbles">
 	</div>
 	<hr class="mb-6 border-t border-gray-700" />
 	<nav>
