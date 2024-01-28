@@ -1102,6 +1102,14 @@ html {
   margin-top: 2rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -1209,6 +1217,10 @@ html {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-dvh {
+  height: 100dvh;
 }
 
 .max-h-72 {
@@ -2006,6 +2018,22 @@ html {
   padding-top: 1.25rem;
 }
 
+.pl-6 {
+  padding-left: 1.5rem;
+}
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -2057,6 +2085,11 @@ html {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-bold {
@@ -3147,7 +3180,7 @@ let ViewHome = class ViewHome extends s$1 {
 
 		<div class="bg-slate-900/80 shadow sm:rounded-lg">
 		<div class="px-4 py-5 sm:p-6">
-		<h1 class="text-5xl w-fit p-4 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-300" ">
+			<h1 class="text-5xl w-fit p-4 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-300" ">
 				Welcome to Hubbles
 			</h1>
 			
@@ -3288,146 +3321,175 @@ let HubblesApp = class HubblesApp extends s$1 {
     getHtml() {
         var _a;
         return x `
-	<div>
-	<!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+	<div class="h-dvh">
+	<!-- Mobile: Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
 	<div data-parent class="relative z-50 md:hidden" role="dialog" aria-modal="true">
-	<!--
-		Off-canvas menu backdrop, show/hide based on off-canvas menu state.
-
-		Entering: "transition-opacity ease-linear duration-300"
-		From: "opacity-0"
-		To: "opacity-100"
-		Leaving: "transition-opacity ease-linear duration-300"
-		From: "opacity-100"
-		To: "opacity-0"
-	-->
-	<div 
-	data-alter="opacity-100;opacity-0"
-		class="fixed inset-0 bg-slate-900/80 transition-opacity ease-linear duration-300"></div>
-
-	<div 
-	@click="${applyAlter}"
-	data-ignore="active"
-	class="fixed inset-0 flex">
 		<!--
-		Off-canvas menu, show/hide based on off-canvas menu state.
+			Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
-		Entering: "transition ease-in-out duration-300 transform"
-			From: "-translate-x-full"
-			To: "translate-x-0"
-		Leaving: "transition ease-in-out duration-300 transform"
-			From: "translate-x-0"
-			To: "-translate-x-full"
-		-->
-		<div 
-		data-alter="translate-x-0;-translate-x-full"
-		class="relative mr-16 flex w-full max-w-xs flex-1 transition ease-in-out duration-300 transform">
-		<!--
-			Close button, show/hide based on off-canvas menu state.
-
-			Entering: "ease-in-out duration-300"
+			Entering: "transition-opacity ease-linear duration-300"
 			From: "opacity-0"
 			To: "opacity-100"
-			Leaving: "ease-in-out duration-300"
+			Leaving: "transition-opacity ease-linear duration-300"
 			From: "opacity-100"
 			To: "opacity-0"
 		-->
-		<div
-			data-alter="opacity-100;opacity-0"
-			@click="${applyAlter}"
-			class="absolute left-full top-0 flex w-16 justify-center pt-5 ease-in-out duration-300">
-			<button type="button" class="-m-2.5 p-2.5">
-			<span class="sr-only">Close sidebar</span>
-			<svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-			</svg>
-			</button>
-		</div>
+		<div 
+		@click="${applyAlter}"
+		data-alter="opacity-0;opacity-100"
+			class="opacity-0 fixed inset-0 bg-slate-900/80 transition-opacity ease-linear duration-300"></div>
 
-		<div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-2 ring-1 ring-white/10">
-			<div class="flex h-16 shrink-0 items-center">
-				<!-- https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500 -->
-			<img class="h-8 w-auto" src="./resources/hubbles.png" alt="Hubbles">
+		<div 
+		data-ignore="active"
+		class="fixed inset-0 flex">
+			<!--
+			Off-canvas menu, show/hide based on off-canvas menu state.
+
+			Entering: "transition ease-in-out duration-300 transform"
+				From: "-translate-x-full"
+				To: "translate-x-0"
+			Leaving: "transition ease-in-out duration-300 transform"
+				From: "translate-x-0"
+				To: "-translate-x-full"
+			-->
+			<div 
+			data-alter="-translate-x-full;translate-x-0"
+			class="-translate-x-full relative mr-16 flex w-full max-w-xs flex-1 transition ease-in-out duration-300 transform">
+			<!--
+				Close button, show/hide based on off-canvas menu state.
+
+				Entering: "ease-in-out duration-300"
+				From: "opacity-0"
+				To: "opacity-100"
+				Leaving: "ease-in-out duration-300"
+				From: "opacity-100"
+				To: "opacity-0"
+			-->
+			<div
+				data-alter="opacity-0;opacity-100"
+				@click="${applyAlter}"
+				class="opacity-0 absolute left-full top-0 flex w-16 justify-center pt-5 ease-in-out duration-300">
+				<button type="button" class="-m-2.5 p-2.5">
+				<span class="sr-only">Close sidebar</span>
+				<svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+				</button>
 			</div>
-			<nav class="flex flex-1 flex-col">
-			<ul role="list" class="flex flex-col items-center space-y-1">
 
-			${this.navItems.map((item) => x `<li @click="${() => this._router(item)}">
+			<div class="relative flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 pb-2 ring-1 ring-white/10">
+				<div class="flex px-6 mb-6 h-16 shrink-0 items-center">
+					<!-- https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500 -->
+				<img class="h-8 w-auto" src="./resources/hubbles.png" alt="Hubbles">
+				<h1 class="pl-4 text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-300" ">
+						Hubbles
+				</h1>
+				</div>
+				<nav class="flex flex-1 flex-col px-6">
+				<ul role="list" class="flex flex-col space-y-1">
+
+				${this.navItems.map((item) => x `<li @click="${e => {
+            this._router(item);
+            applyAlter(e);
+        }}">
+						<!-- Current: "bg-gray-800 text-white", Default: "text-gray-400 hover:text-white hover:bg-gray-800" -->
+						<a href="#" class="bg-gray-800 text-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+						<div class="h-6 w-6 shrink-0">
+							${o(item.icon)}
+						</div>
+						${item.title}
+						</a>
+					</li>`)}
+				
+				</ul>
+				</nav>
+				<!-- App Navigation -->
+				<nav class="absolute bottom-0 w-full px-6 mb-6">
+					<hr class="my-6 border-t border-gray-700" />
+					<ul role="list" class="flex flex-col space-y-1">
+						${this.appNavItems.map((item) => x `<li @click="${e => {
+            this._router(item);
+            applyAlter(e);
+        }}">
+							<!-- Current: "bg-gray-800 text-white", Default: "text-gray-400 hover:text-white hover:bg-gray-800" -->
+							<a href="#" class="bg-gray-800 text-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+							<div class="h-6 w-6 shrink-0">
+								${o(item.icon)}
+							</div>
+							${item.title}
+							</a>
+						</li>`)}
+					</ul>
+				</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Desktop: Static sidebar for desktop -->
+	<div class="relative hidden md:fixed md:inset-y-0 md:left-0 md:z-50 md:block md:w-20 md:overflow-y-auto md:bg-gray-900 md:pb-4">
+		<div class="flex h-16 shrink-0 items-center justify-center">
+			<img class="h-8 w-auto" src="./resources/hubbles.png" alt="Hubbles">
+		</div>
+		<hr class="mb-6 border-t border-gray-700" />
+		<nav>
+			<ul role="list" class="flex flex-col items-center space-y-1">
+				${this.navItems.map((item) => x `<li @click="${() => this._router(item)}">
 					<!-- Current: "bg-gray-800 text-white", Default: "text-gray-400 hover:text-white hover:bg-gray-800" -->
-					<a href="#" class="bg-gray-800 text-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-					<div class="h-6 w-6 shrink-0">
-						${o(item.icon)}
-					</div>
-					${item.title}
+					<a href="#" class="bg-gray-800 text-white group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold">
+						<div class="h-6 w-6 shrink-0">
+							${o(item.icon)}
+						</div>
+						<span class="sr-only">${item.title}</span>
 					</a>
 				</li>`)}
-			
 			</ul>
-			</nav>
+		</nav>
+		<!-- App Navigation -->
+		<nav class="absolute bottom-0 text-center w-full">
+			<hr class="my-6 border-t border-gray-700" />
+			<ul role="list" class="flex flex-col items-center space-y-1 mb-6">
+				${this.appNavItems.map((item) => x `<li @click="${() => this._router(item)}">
+					<!-- Current: "bg-gray-800 text-white", Default: "text-gray-400 hover:text-white hover:bg-gray-800" -->
+					<a href="#" class="bg-gray-800 text-white group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold">
+						<div class="h-auto w-7 shrink-0">
+							${o(item.icon)}
+						</div>
+						<span class="sr-only">${item.title}</span>
+					</a>
+				</li>`)}
+			</ul>
+		</nav>
 		</div>
+
+		<div class="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 md:hidden">
+		<button type="button" class="-m-2.5 p-2.5 text-gray-400 md:hidden">
+			<span class="sr-only">Open sidebar</span>
+			<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+			</svg>
+		</button>
+		<div class="w-full text-center">
+		<h1 class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-300" ">
+				Hubbles
+		</h1>
 		</div>
-	</div>
-	</div>
-
-	<!-- Static sidebar for desktop -->
-	<div class="relative hidden md:fixed md:inset-y-0 md:left-0 md:z-50 md:block md:w-20 md:overflow-y-auto md:bg-gray-900 md:pb-4">
-	<div class="flex h-16 shrink-0 items-center justify-center">
-		<img class="h-8 w-auto" src="./resources/hubbles.png" alt="Hubbles">
-	</div>
-	<hr class="mb-6 border-t border-gray-700" />
-	<nav>
-		<ul role="list" class="flex flex-col items-center space-y-1">
-			${this.navItems.map((item) => x `<li @click="${() => this._router(item)}">
-				<!-- Current: "bg-gray-800 text-white", Default: "text-gray-400 hover:text-white hover:bg-gray-800" -->
-				<a href="#" class="bg-gray-800 text-white group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold">
-					<div class="h-6 w-6 shrink-0">
-						${o(item.icon)}
-					</div>
-					<span class="sr-only">${item.title}</span>
-				</a>
-			</li>`)}
-		</ul>
-	</nav>
-	<!-- App Navigation -->
-	<nav class="absolute bottom-0 text-center w-full">
-		<hr class="my-6 border-t border-gray-700" />
-		<ul role="list" class="flex flex-col items-center space-y-1 mb-6">
-			${this.appNavItems.map((item) => x `<li @click="${() => this._router(item)}">
-				<!-- Current: "bg-gray-800 text-white", Default: "text-gray-400 hover:text-white hover:bg-gray-800" -->
-				<a href="#" class="bg-gray-800 text-white group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold">
-					<div class="h-auto w-7 shrink-0">
-						${o(item.icon)}
-					</div>
-					<span class="sr-only">${item.title}</span>
-				</a>
-			</li>`)}
-		</ul>
-	</nav>
-	</div>
-
-	<div class="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 md:hidden">
-	<button type="button" class="-m-2.5 p-2.5 text-gray-400 md:hidden">
-		<span class="sr-only">Open sidebar</span>
-		<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-		<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-		</svg>
-	</button>
-	<div class="flex-1 text-sm font-semibold leading-6 text-white">
-		${(_a = this.navItems.find(x => x.name === this.view)) === null || _a === void 0 ? void 0 : _a.title}
-	</div>
-	<a href="#">
-		<span class="sr-only">Not logged in</span>
-		<span class="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100">
-		<svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-			<path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-		</svg>
-		</span>
-	</a>
+		<div class="flex-1 text-sm font-semibold leading-6 text-white">
+			${(_a = this.navItems.find(x => x.name === this.view)) === null || _a === void 0 ? void 0 : _a.title}
+		</div>
+		<a href="#">
+			<span class="sr-only">Not logged in</span>
+			<span class="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100">
+			<svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+				<path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+			</svg>
+			</span>
+		</a>
 	</div>
 
 	<main 
 	@toggle-hubble="${this._toggleHubble}"
-	class="md:pl-20 h-full">
+	class=" md:pl-20 h-fill">
 	<!-- px-4 py-10 sm:px-6 md:px-8 md:py-6 -->
 		<!-- px-4 py-10 sm:px-6 md:px-8 md:py-6 -->
 		<!-- Main area -->
