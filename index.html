@@ -1,51 +1,36 @@
 <html class="h-full bg-white">
-    <head>
-        <title>Writery</title>
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-        <meta name="theme-color" content="#ff9a9e" />
-        <link rel="icon" href="./resources/icon-72x72.png" type="image/x-icon" />
-        <link rel="manifest" href="./manifest.json" />
-        <script src="./lit.js"></script>
-        <style>
-            .h-full {
-                height: 100%;
-            }
-            .bg-white {
-                background-color: #fff;
-            }
-            .m-0 {
-                margin: 0;
-            }
-            .overflow-hidden {
-                overflow: hidden;
-            }
-        </style>
-        <script>
-            if ("serviceWorker" in navigator) {
-                window.addEventListener("load", function () {
-                    navigator.serviceWorker.register("./sw.js").then(
-                        function (registration) {
-                            console.log(
-                                "ServiceWorker registration successful with scope: ",
-                                registration.scope,
-                            );
-                        },
-                        function (err) {
-                            console.log(
-                                "ServiceWorker registration failed: ",
-                                err,
-                            );
-                        },
-                    );
-                });
-            }
-        </script>
-    </head>
-    <body class="h-full m-0 overflow-hidden">
-        <writery-app></writery-app>
-    </body>
+<head>
+    <title>Hubbles</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="./resources/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="./resources/manifest.json">
+    <script src="./lit.js"></script>
+    <style>
+        .h-full {
+            height: 100%;
+        }
+        .bg-white {
+            background-color: #fff;
+        }
+        .m-0 {
+            margin: 0;
+        }
+    </style>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+              navigator.serviceWorker.register('./sw.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+              }, function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+              });
+            });
+        }
+    </script>
+</head>
+<body class="h-full m-0">
+    <hubbles-app></hubbles-app>
+</body>
 </html>
